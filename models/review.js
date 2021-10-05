@@ -6,4 +6,8 @@ const reviewSchema = new Schema ({
   rating: Number
 });
 
+// reviewSchema.post("findOneAndDelete", async function() {
+//   console.log("delted")
+// });
+
 module.exports = mongoose.model("Review", reviewSchema);
