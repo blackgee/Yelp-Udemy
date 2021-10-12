@@ -4,6 +4,7 @@ const catchAsync = require("../utils/catchAsync");
 const {campgroundSchema} = require("../schemas.js");
 const ExpressError = require("../utils/ExpressError");
 const Campground = require("../models/campground");
+const {isLoggedIn} = require("../middleware");
 
 const validateCampground = (req, res, next) => {
   const {
@@ -24,11 +25,11 @@ const campgrounds = await Campground.find({});
   });
 }));
 
-router.get("/new", (req, res) => {
-  res.render("campgrounds/new")
+router.get("/new", isLoggedIn, (req, res) => {
+   res.render("campgrounds/new")
 });
 
-router.post("/", validateCampground, catchAsync(async (req, res, next) => {
+router.post("/", isLoggedIn, validateCampground, catchAsync(async (req, res, next) => {
   // if(!req.body.campground) throw new ExpressError("invalid page", 400);
   const campground = new Campground(req.body.campground);
   await campground.save();
@@ -47,7 +48,7 @@ router.get("/:id", catchAsync(async (req, res) => {
     });
 }));
 
-router.get("/:id/edit", catchAsync(async (req, res) => {
+router.get("/:id/edit", isLoggedIn, catchAsync(async (req, res) => {
   const campground = await Campground.findById(req.params.id)
   if(!campground){
     req.flash("error", "Campground not found")
@@ -58,7 +59,7 @@ router.get("/:id/edit", catchAsync(async (req, res) => {
     });
 }));
 
-router.put("/:id", validateCampground, catchAsync(async (req, res) => {
+router.put("/:id", isLoggedIn, validateCampground, catchAsync(async (req, res) => {
   const {
     id
   } = req.params;
@@ -69,7 +70,7 @@ router.put("/:id", validateCampground, catchAsync(async (req, res) => {
   res.redirect(`/campgrounds/${campground._id}`)
 }));
 
-router.delete("/:id", catchAsync(async (req, res) => {
+router.delete("/:id", isLoggedIn, catchAsync(async (req, res) => {
   const {
     id
   } = req.params;
