@@ -39,17 +39,17 @@ const seedDB = async () => {
         ]
       },
       images: [{
-          url: 'https://res.cloudinary.com/gabp/image/upload/v1634593467/Yelp-Udemy/kqcwcy7bvbry8xck752c.jpg',
-          filename: 'Yelp-Udemy/kqcwcy7bvbry8xck752c'
+          url: 'https://res.cloudinary.com/gabp/image/upload/v1634589471/Yelp-Udemy/x4fr9chlsd1c9da3f9dy.jpg',
+          filename: 'Yelp-Udemy/x4fr9chlsd1c9da3f9dy'
         },
         {
-          url: 'https://res.cloudinary.com/gabp/image/upload/v1634593475/Yelp-Udemy/bzb3gilkjjkydhdzcyta.jpg',
-          filename: 'Yelp-Udemy/bzb3gilkjjkydhdzcyta'
+          url: 'https://res.cloudinary.com/gabp/image/upload/v1634587859/Yelp-Udemy/q7efspfp37czibj0lykd.jpg',
+          filename: 'Yelp-Udemy/q7efspfp37czibj0lykd'
 
         },
         {
-          url: 'https://res.cloudinary.com/gabp/image/upload/v1634593476/Yelp-Udemy/a5e8auiypfehx2pdcfgc.jpg',
-          filename: 'Yelp-Udemy/a5e8auiypfehx2pdcfgc'
+          url: 'https://res.cloudinary.com/gabp/image/upload/v1634588563/Yelp-Udemy/d52evi4xhtqxewytwnu6.jpg',
+          filename: 'Yelp-Udemy/d52evi4xhtqxewytwnu6'
 
         }
       ]
